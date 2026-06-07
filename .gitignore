@@ -1,0 +1,12 @@
+/vendor/
+/node_modules/
+/public/storage
+/storage/
+/.idea/
+.env
+*.log
+server/database.db
+server/uploads/*
+!server/uploads/.gitkeep
+.DS_Store
+Thumbs.db

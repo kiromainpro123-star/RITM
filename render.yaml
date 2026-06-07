@@ -1,0 +1,15 @@
+# Используем Laravel/PHP для основного сайта.
+# Папка server/ оставлена в репозитории, но для деплоя Render используется PHP-сервис.
+services:
+  - type: web
+    name: ritm-club
+    env: php
+    buildCommand: composer install --no-interaction --prefer-dist --optimize-autoloader
+    startCommand: php artisan serve --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: 'false'
+      - key: PORT
+        value: 10000

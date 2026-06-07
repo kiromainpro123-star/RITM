@@ -1,0 +1,17 @@
+{
+  "name": "ritm-club",
+  "version": "1.0.0",
+  "description": "Веб-приложение для клуба Ритм - дипломный проект",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "cd server && npm start",
+    "dev": "cd server && npm run dev",
+    "install-server": "cd server && npm install"
+  },
+  "keywords": ["club", "ritm", "omsk", "diploma"],
+  "author": "И.Т. Ербаев",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
