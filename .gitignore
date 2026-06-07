@@ -5,6 +5,7 @@
 /.idea/
 .env
 *.log
+database/database.sqlite
 server/database.db
 server/uploads/*
 !server/uploads/.gitkeep

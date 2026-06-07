@@ -26,17 +26,19 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Copy application code
 COPY . .
 
+# Create .env from .env.example and prepare SQLite database
+RUN cp .env.example .env
+RUN touch database/database.sqlite
+
 # Install dependencies
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
-
-# Create .env from .env.example
-RUN cp .env.example .env
 
 # Install npm packages if needed
 RUN if [ -f package.json ]; then npm install; fi
 
-# Generate APP_KEY
+# Generate APP_KEY and run migrations
 RUN php artisan key:generate --force
+RUN php artisan migrate --force
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html
