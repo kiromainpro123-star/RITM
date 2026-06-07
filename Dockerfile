@@ -30,8 +30,7 @@ COPY . .
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
 # Install npm packages if needed
-RUN if [ -f package.json ]; then npm install && npm run build; fi
-
+    RUN if [ -f package.json ]; then npm install; fi
 # Generate APP_KEY if not set
 RUN php artisan key:generate --force || true
 
