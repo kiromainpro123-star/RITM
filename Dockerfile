@@ -36,9 +36,10 @@ RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 # Install npm packages if needed
 RUN if [ -f package.json ]; then npm install; fi
 
-# Generate APP_KEY, run migrations and seed admin user
+# Generate APP_KEY, run migrations, create storage symlink and seed admin user
 RUN php artisan key:generate --force
 RUN php artisan migrate --force
+RUN php artisan storage:link --force
 RUN php artisan db:seed --class="Database\\Seeders\\AdminSeeder" --force
 
 # Set permissions
