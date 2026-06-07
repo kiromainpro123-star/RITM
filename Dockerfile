@@ -8,19 +8,16 @@ RUN apk add --no-cache \
     git \
     zip \
     unzip \
-    npm
+    npm \
+    alpine-sdk \
+    autoconf
 
 # Install PHP extensions
-RUN docker-php-ext-install \
+RUN docker-php-ext-install -j$(nproc) \
     pdo \
     pdo_mysql \
     bcmath \
-    ctype \
-    fileinfo \
-    json \
-    mbstring \
-    openssl \
-    tokenizer
+    mbstring
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
