@@ -10,7 +10,8 @@ RUN apk add --no-cache \
     unzip \
     npm \
     alpine-sdk \
-    autoconf
+    autoconf \
+    oniguruma-dev
 
 # Install PHP extensions
 RUN docker-php-ext-install -j$(nproc) \
