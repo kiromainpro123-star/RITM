@@ -29,10 +29,14 @@ COPY . .
 # Install dependencies
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
+# Create .env from .env.example
+RUN cp .env.example .env
+
 # Install npm packages if needed
-    RUN if [ -f package.json ]; then npm install; fi
-# Generate APP_KEY if not set
-RUN php artisan key:generate --force || true
+RUN if [ -f package.json ]; then npm install; fi
+
+# Generate APP_KEY
+RUN php artisan key:generate --force
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html
