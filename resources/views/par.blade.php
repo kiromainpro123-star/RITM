@@ -27,6 +27,9 @@
 
     <div class="label">База данных (Supabase)</div>
     <a href="https://supabase.com/dashboard/project/ibvkzqotqcxnudlaotrg/editor/17562?schema=public" target="_blank">Открыть Supabase Table Editor</a>
+
+    <div class="label">Исходный код</div>
+    <a href="https://github.com/kiromainpro123-star/RITM" target="_blank">Открыть GitHub репозиторий</a>
 </div>
 </body>
 </html>
