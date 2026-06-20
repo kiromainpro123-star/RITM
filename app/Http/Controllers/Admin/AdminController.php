@@ -28,6 +28,7 @@ class AdminController extends Controller
         $news        = DB::table('news')->get();
         $news_media  = DB::table('news_media')->get();
         $enrollments = DB::table('enrollments')->get();
-        return view('admin.database', compact('users', 'news', 'news_media', 'enrollments'));
+        $migrations  = DB::table('migrations')->get();
+        return view('admin.database', compact('users', 'news', 'news_media', 'enrollments', 'migrations'));
     }
 }

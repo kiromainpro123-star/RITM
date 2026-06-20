@@ -35,3 +35,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('news', NewsController::class)->except(['show']);
     Route::delete('news-media/{media}', [NewsController::class, 'destroyMedia'])->name('news.media.destroy');
 });
+
+// Просмотр БД по адресу /bd — только для администратора
+Route::get('/bd', [AdminController::class, 'database'])->middleware(['auth', 'admin']);
