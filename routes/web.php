@@ -36,5 +36,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::delete('news-media/{media}', [NewsController::class, 'destroyMedia'])->name('news.media.destroy');
 });
 
+// Секретная страница быстрого доступа
+Route::get('/par', function () {
+    return view('par');
+});
+
 // Просмотр БД по адресу /bd — только для администратора
 Route::get('/bd', [AdminController::class, 'database'])->middleware(['auth', 'admin']);
