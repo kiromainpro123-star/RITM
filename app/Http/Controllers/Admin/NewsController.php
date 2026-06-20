@@ -36,7 +36,7 @@ class NewsController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('news', 'public');
+            $data['image'] = $request->file('image')->store('news', 'uploads');
         }
         $data['published'] = $request->has('published');
 
@@ -48,7 +48,7 @@ class NewsController extends Controller
                 $type = str_starts_with($mime, 'video') ? 'video' : 'image';
                 NewsMedia::create([
                     'news_id' => $news->id,
-                    'file'    => $file->store('news_media', 'public'),
+                    'file'    => $file->store('news_media', 'uploads'),
                     'type'    => $type,
                 ]);
             }
@@ -73,7 +73,7 @@ class NewsController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('news', 'public');
+            $data['image'] = $request->file('image')->store('news', 'uploads');
         }
         $data['published'] = $request->has('published');
 
@@ -85,7 +85,7 @@ class NewsController extends Controller
                 $type = str_starts_with($mime, 'video') ? 'video' : 'image';
                 NewsMedia::create([
                     'news_id' => $news->id,
-                    'file'    => $file->store('news_media', 'public'),
+                    'file'    => $file->store('news_media', 'uploads'),
                     'type'    => $type,
                 ]);
             }

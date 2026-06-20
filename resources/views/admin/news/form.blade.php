@@ -20,7 +20,7 @@
         <div class="form-group">
             <label>Главное фото (обложка)</label>
             @if($item?->image)
-                <img src="{{ asset('storage/' . $item->image) }}" style="height:100px;border-radius:6px;margin-bottom:.5rem;display:block;">
+                <img src="{{ asset('uploads/' . $item->image) }}" style="height:100px;border-radius:6px;margin-bottom:.5rem;display:block;">
             @endif
             <input type="file" name="image" accept="image/*">
         </div>
@@ -42,9 +42,9 @@
                 @foreach($item->media as $m)
                 <div style="position:relative;border-radius:8px;overflow:hidden;background:#f0f0f0;">
                     @if($m->type === 'image')
-                        <img src="{{ asset('storage/' . $m->file) }}" style="width:100%;height:110px;object-fit:cover;display:block;">
+                        <img src="{{ asset('uploads/' . $m->file) }}" style="width:100%;height:110px;object-fit:cover;display:block;">
                     @else
-                        <video src="{{ asset('storage/' . $m->file) }}" style="width:100%;height:110px;object-fit:cover;display:block;" muted></video>
+                        <video src="{{ asset('uploads/' . $m->file) }}" style="width:100%;height:110px;object-fit:cover;display:block;" muted></video>
                         <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:2rem;">▶️</div>
                     @endif
                     <form action="{{ route('admin.news.media.destroy', $m) }}" method="POST" style="position:absolute;top:4px;right:4px;" onsubmit="return confirm('Удалить?')">

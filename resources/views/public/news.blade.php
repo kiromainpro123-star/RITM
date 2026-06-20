@@ -27,14 +27,14 @@
                 $imgs = $item->media->where('type','image')->values();
                 $allImgs = collect();
                 if($item->image) $allImgs->push($item->image);
-                foreach($imgs as $m) $allImgs->push('storage/'.$m->file);
+                foreach($imgs as $m) $allImgs->push('uploads/'.$m->file);
                 $cnt = min($allImgs->count(), 4);
             @endphp
             <div class="news-card">
                 @if($allImgs->count())
                 <div class="mini-grid g{{ $cnt }}">
                     @foreach($allImgs->take(4) as $src)
-                    @php $photoUrl = str_starts_with($src, 'storage/') ? asset($src) : asset('storage/' . ltrim($src, '/')); @endphp
+                    @php $photoUrl = asset($src); @endphp
                     <div class="gi"><img src="{{ $photoUrl }}" alt="{{ $item->title }}" onerror="this.onerror=null;this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23e2e8f0%22/%3E%3Ctext x=%2220%22 y=%22180%22 font-family=%22Inter,sans-serif%22 font-size=%2220%22 fill=%22%23606f7a%22%3EФото недоступно%3C/text%3E%3C/svg%3E';"></div>
                     @endforeach
                 </div>

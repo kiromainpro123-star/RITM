@@ -11,7 +11,7 @@
 <div class="photo-grid">
     @foreach($photos as $photo)
     <div class="photo-item">
-        <img src="{{ asset('storage/' . $photo->image) }}" alt="{{ $photo->title }}">
+        <img src="{{ asset('uploads/' . $photo->image) }}" alt="{{ $photo->title }}">
         <form action="{{ route('admin.gallery.destroy', $photo) }}" method="POST" class="del-btn" onsubmit="return confirm('Удалить фото?')">
             @csrf @method('DELETE')
             <button class="btn btn-danger" style="padding:.3rem .6rem;font-size:.75rem;">✕</button>

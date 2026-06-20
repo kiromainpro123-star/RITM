@@ -22,14 +22,14 @@
         @endphp
         <div class="media-grid media-{{ $mediaCount }}" style="margin-bottom:1.5rem;">
             @if($item->image)
-                <div class="media-item" onclick="openLightbox('{{ asset('storage/' . $item->image) }}')">
-                    <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}" onerror="this.onerror=null;this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23e2e8f0%22/%3E%3Ctext x=%2220%22 y=%22180%22 font-family=%22Inter,sans-serif%22 font-size=%2220%22 fill=%22%23606f7a%22%3EФото недоступно%3C/text%3E%3C/svg%3E';">
+                <div class="media-item" onclick="openLightbox('{{ asset('uploads/' . $item->image) }}')">
+                    <img src="{{ asset('uploads/' . $item->image) }}" alt="{{ $item->title }}" onerror="this.onerror=null;this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23e2e8f0%22/%3E%3Ctext x=%2220%22 y=%22180%22 font-family=%22Inter,sans-serif%22 font-size=%2220%22 fill=%22%23606f7a%22%3EФото недоступно%3C/text%3E%3C/svg%3E';">
                 </div>
             @endif
             @foreach($displayImages as $index => $m)
                 @php $isMoreCell = $item->image ? $index === 2 && $count > 3 : $index === 3 && $count > 4; @endphp
-                <div class="media-item{{ $isMoreCell ? ' media-more' : '' }}" onclick="openLightbox('{{ asset('storage/' . $m->file) }}')">
-                    <img src="{{ asset('storage/' . $m->file) }}" alt="" onerror="this.onerror=null;this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23e2e8f0%22/%3E%3Ctext x=%2220%22 y=%22180%22 font-family=%22Inter,sans-serif%22 font-size=%2220%22 fill=%22%23606f7a%22%3EФото недоступно%3C/text%3E%3C/svg%3E';">
+                <div class="media-item{{ $isMoreCell ? ' media-more' : '' }}" onclick="openLightbox('{{ asset('uploads/' . $m->file) }}')">
+                    <img src="{{ asset('uploads/' . $m->file) }}" alt="" onerror="this.onerror=null;this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23e2e8f0%22/%3E%3Ctext x=%2220%22 y=%22180%22 font-family=%22Inter,sans-serif%22 font-size=%2220%22 fill=%22%23606f7a%22%3EФото недоступно%3C/text%3E%3C/svg%3E';">
                     @if($isMoreCell && $extraCount > 0)
                         <div class="more-overlay">+{{ $extraCount }}</div>
                     @endif
@@ -41,7 +41,7 @@
         {{-- Видео --}}
         @foreach($videos as $v)
         <video controls style="width:100%;border-radius:10px;margin-bottom:1rem;max-height:450px;background:#000;">
-            <source src="{{ asset('storage/' . $v->file) }}">
+            <source src="{{ asset('uploads/' . $v->file) }}">
         </video>
         @endforeach
 
