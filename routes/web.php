@@ -30,6 +30,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::patch('enrollments/{enrollment}/toggle', [AdminEnrollmentController::class, 'toggle'])->name('enrollments.toggle');
     Route::get('/', [AdminController::class, 'index'])->name('index');
+    Route::get('/database', [AdminController::class, 'database'])->name('database');
     Route::get('enrollments', [AdminEnrollmentController::class, 'index'])->name('enrollments.index');
     Route::resource('news', NewsController::class)->except(['show']);
     Route::delete('news-media/{media}', [NewsController::class, 'destroyMedia'])->name('news.media.destroy');
