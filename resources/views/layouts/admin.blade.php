@@ -120,6 +120,9 @@
         <a href="{{ route('admin.enrollments.index') }}" class="{{ request()->routeIs('admin.enrollments*') ? 'active' : '' }}">
             <span class="ico">📝</span> Записи
         </a>
+        <a href="{{ route('admin.database') }}" class="{{ request()->routeIs('admin.database') ? 'active' : '' }}">
+            <span class="ico">🗄️</span> База данных
+        </a>
     </nav>
     <div class="sidebar-footer">
         <a href="{{ route('home') }}">← На сайт</a>
