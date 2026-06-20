@@ -26,7 +26,7 @@
             @php
                 $imgs = $item->media->where('type','image')->values();
                 $allImgs = collect();
-                if($item->image) $allImgs->push($item->image);
+                if($item->image) $allImgs->push('uploads/'.$item->image);
                 foreach($imgs as $m) $allImgs->push('uploads/'.$m->file);
                 $cnt = min($allImgs->count(), 4);
             @endphp
