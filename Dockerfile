@@ -14,9 +14,11 @@ RUN apk add --no-cache \
     oniguruma-dev
 
 # Install PHP extensions
-RUN docker-php-ext-install -j$(nproc) \
+RUN apk add --no-cache libpq-dev \
+    && docker-php-ext-install -j$(nproc) \
     pdo \
     pdo_mysql \
+    pdo_pgsql \
     bcmath \
     mbstring
 
