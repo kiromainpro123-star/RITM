@@ -26,11 +26,11 @@ class EnrollmentController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'child_name' => 'required|string|max:255',
-            'child_age' => 'required|integer|min:3|max:25',
-            'club' => 'required|string|max:255',
-            'parent_phone' => 'required|string|max:30',
-            'notes' => 'nullable|string|max:1000',
+            'child_name'   => 'required|string|max:100|regex:/^[\p{L}\s\-]+$/u',
+            'child_age'    => 'required|integer|min:3|max:25',
+            'club'         => 'required|string|in:Игротека,Швейная мастерская,Настольный теннис,Степ-аэробика,Общая физподготовка,Игротека 16+',
+            'parent_phone' => 'required|string|max:30|regex:/^[\+\d\s\-\(\)]+$/',
+            'notes'        => 'nullable|string|max:1000',
         ]);
 
         auth()->user()->enrollments()->create($data);

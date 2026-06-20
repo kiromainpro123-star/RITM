@@ -13,7 +13,7 @@
 
                         <div class="mb-3">
                             <label for="child_name" class="form-label">Имя ребёнка</label>
-                            <input id="child_name" type="text" class="form-control @error('child_name') is-invalid @enderror" name="child_name" value="{{ old('child_name') }}" required>
+                            <input id="child_name" type="text" class="form-control @error('child_name') is-invalid @enderror" name="child_name" value="{{ old('child_name') }}" required maxlength="100" placeholder="Иван Иванов" oninput="this.value=this.value.replace(/[^а-яёА-ЯЁa-zA-Z\s\-]/g,'')">
                             @error('child_name')
                                 <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                             @enderror
@@ -21,7 +21,7 @@
 
                         <div class="mb-3">
                             <label for="child_age" class="form-label">Возраст</label>
-                            <input id="child_age" type="number" class="form-control @error('child_age') is-invalid @enderror" name="child_age" value="{{ old('child_age') }}" required>
+                            <input id="child_age" type="number" class="form-control @error('child_age') is-invalid @enderror" name="child_age" value="{{ old('child_age') }}" required min="3" max="25" placeholder="от 3 до 25 лет">
                             @error('child_age')
                                 <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                             @enderror
@@ -45,7 +45,7 @@
 
                         <div class="mb-3">
                             <label for="parent_phone" class="form-label">Телефон родителя</label>
-                            <input id="parent_phone" type="text" class="form-control @error('parent_phone') is-invalid @enderror" name="parent_phone" value="{{ old('parent_phone') }}" required>
+                            <input id="parent_phone" type="tel" class="form-control @error('parent_phone') is-invalid @enderror" name="parent_phone" value="{{ old('parent_phone') }}" required placeholder="+7 (999) 999-99-99" pattern="[\+\d\s\-\(\)]+" oninput="this.value=this.value.replace(/[^+\d\s\-\(\)]/g,'')">
                             @error('parent_phone')
                                 <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                             @enderror
@@ -53,7 +53,7 @@
 
                         <div class="mb-3">
                             <label for="notes" class="form-label">Комментарий</label>
-                            <textarea id="notes" name="notes" class="form-control @error('notes') is-invalid @enderror" rows="4">{{ old('notes') }}</textarea>
+                            <textarea id="notes" name="notes" class="form-control @error('notes') is-invalid @enderror" rows="4" maxlength="1000" placeholder="Дополнительная информация (необязательно)">{{ old('notes') }}</textarea>
                             @error('notes')
                                 <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                             @enderror
