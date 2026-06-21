@@ -6,7 +6,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\NewsController;
-use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\EnrollmentController as AdminEnrollmentController;
 
 // Публичные страницы

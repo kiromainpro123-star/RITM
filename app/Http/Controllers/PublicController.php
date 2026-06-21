@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Gallery;
 use App\Models\News;
 
 class PublicController extends Controller
@@ -25,9 +24,5 @@ class PublicController extends Controller
         return view('public.news_show', compact('item'));
     }
 
-    public function gallery()
-    {
-        $photos = Gallery::latest()->paginate(12);
-        return view('public.gallery', compact('photos'));
-    }
+
 }
