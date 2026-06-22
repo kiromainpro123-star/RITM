@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Nunito', sans-serif; color: #2d2d2d; background: #fff; }
+        body { font-family: 'Nunito', sans-serif; color: #2d2d2d; background: #fff; display: flex; flex-direction: column; min-height: 100vh; }
         a { text-decoration: none; color: inherit; }
 
         /* NAV */
@@ -162,7 +162,7 @@
 
 @yield('content')
 
-<footer>
+<footer style="margin-top: auto;">
     <p>© {{ date('Y') }} Клуб «Ритм» — Омск, ул. Юбилейная, 6 &nbsp;|&nbsp; <a href="tel:+73812665580">+7 (3812) 66-55-80</a></p>
 </footer>
 </body>
