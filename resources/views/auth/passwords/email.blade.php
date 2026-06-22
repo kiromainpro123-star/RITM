@@ -170,18 +170,18 @@
         <div class="reset-password-body">
             @if (session('status'))
                 <div class="alert-success">
-                    ✓ {{ session('status') }}
+                    {{ session('status') }}
                 </div>
             @endif
 
             @if ($errors->any())
                 @foreach ($errors->all() as $error)
-                    <div class="alert-danger">✕ {{ $error }}</div>
+                    <div class="alert-danger">{{ $error }}</div>
                 @endforeach
             @endif
 
             <div class="info-text">
-                📧 Введите вашу электронную почту для восстановления доступа к аккаунту.
+                Введите вашу электронную почту для восстановления доступа к аккаунту.
             </div>
 
             <form method="POST" action="{{ route('password.email') }}">

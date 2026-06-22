@@ -112,13 +112,13 @@
     <div class="sidebar-logo">Клуб <span>«Ритм»</span></div>
     <nav>
         <a href="{{ route('admin.index') }}" class="{{ request()->routeIs('admin.index') ? 'active' : '' }}">
-            <span class="ico">🏠</span> Главная
+            Главная
         </a>
         <a href="{{ route('admin.news.index') }}" class="{{ request()->routeIs('admin.news*') ? 'active' : '' }}">
-            <span class="ico">📰</span> Новости
+            Новости
         </a>
         <a href="{{ route('admin.enrollments.index') }}" class="{{ request()->routeIs('admin.enrollments*') ? 'active' : '' }}">
-            <span class="ico">📝</span> Записи
+            Записи
         </a>
     </nav>
     <div class="sidebar-footer">

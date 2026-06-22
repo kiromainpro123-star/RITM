@@ -39,7 +39,7 @@
                     @endforeach
                 </div>
                 @else
-                <div style="height:180px;background:linear-gradient(135deg,#0d1b4b,#1a2a6c);display:flex;align-items:center;justify-content:center;font-size:3rem;">🎭</div>
+                <div style="height:180px;background:linear-gradient(135deg,#0d1b4b,#1a2a6c);display:flex;align-items:center;justify-content:center;"></div>
                 @endif
                 <div class="card-body">
                     <div class="card-date">{{ $item->created_at->format('d.m.Y') }}</div>

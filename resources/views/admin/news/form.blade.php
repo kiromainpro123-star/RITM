@@ -45,7 +45,7 @@
                         <img src="{{ asset('uploads/' . $m->file) }}" style="width:100%;height:110px;object-fit:cover;display:block;">
                     @else
                         <video src="{{ asset('uploads/' . $m->file) }}" style="width:100%;height:110px;object-fit:cover;display:block;" muted></video>
-                        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:2rem;">▶️</div>
+                        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:2rem;">&#9654;</div>
                     @endif
                     <form action="{{ route('admin.news.media.destroy', $m) }}" method="POST" style="position:absolute;top:4px;right:4px;" onsubmit="return confirm('Удалить?')">
                         @csrf @method('DELETE')
